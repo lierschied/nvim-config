@@ -1,6 +1,49 @@
 return {
     {
-    -- Autocompletion
+        'goolord/alpha-nvim',
+        requires = { 'nvim-tree/nvim-web-devicons' },
+        config = function()
+            local alpha = require("alpha")
+            local dashboard = require("alpha.themes.dashboard")
+            require("alpha.term")
+
+            local header = {
+                type = "terminal",
+                -- https://dom111.github.io/image-to-ansi/
+                command = "cat | " .. os.getenv("HOME") .. "/.config/nvim/lua/config/alpha/header.sh",
+                width = 80,
+                height = 26,
+                opts = {
+                    position = "center",
+                    hl = "String",
+                },
+            }
+
+            local buttons = {
+                type = "group",
+                val = {
+                    { type = "text",    val = "Quick links", opts = { hl = "SpecialComment", position = "center" } },
+                    dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
+                    dashboard.button("e", " " .. " New file", ":ene <BAR> startinsert <CR>"),
+                    dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
+                    dashboard.button("t", " " .. " Find text", ":Telescope live_grep <CR>"),
+                    dashboard.button("q", " " .. " Quit", ":qa<CR>"),
+                },
+            }
+
+            local config = {
+                layout = {
+                    header,
+                    { type = "padding", val = 6 },
+                    buttons,
+                },
+            }
+
+            alpha.setup(config)
+        end
+    },
+    {
+        -- Autocompletion
         'hrsh7th/nvim-cmp',
         dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
         config = function()
