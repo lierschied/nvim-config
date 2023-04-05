@@ -1,5 +1,23 @@
 return {
     {
+        'm4xshen/autoclose.nvim',
+        config = function()
+            require("autoclose").setup()
+        end
+    },
+    {
+        'windwp/nvim-ts-autotag',
+        config = function()
+            require('nvim-ts-autotag').setup()
+        end
+    },
+    {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    },
+    {
         'goolord/alpha-nvim',
         requires = { 'nvim-tree/nvim-web-devicons' },
         config = function()
@@ -22,7 +40,7 @@ return {
             local buttons = {
                 type = "group",
                 val = {
-                    { type = "text",    val = "Quick links", opts = { hl = "SpecialComment", position = "center" } },
+                    { type = "text", val = "Quick links", opts = { hl = "SpecialComment", position = "center" } },
                     dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
                     dashboard.button("e", " " .. " New file", ":ene <BAR> startinsert <CR>"),
                     dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
@@ -61,12 +79,12 @@ return {
                 mapping = cmp.mapping.preset.insert {
                     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
                     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-                    ['<C-Space>'] = cmp.mapping.complete {},
+                    ['<C-Space>'] = cmp.mapping.complete(),
                     ['<CR>'] = cmp.mapping.confirm {
                         behavior = cmp.ConfirmBehavior.Replace,
                         select = true,
                     },
-                    ['<Tab>'] = cmp.mapping(function(fallback)
+                    ['<C-Tab>'] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_next_item()
                         elseif luasnip.expand_or_jumpable() then
