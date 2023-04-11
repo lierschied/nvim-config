@@ -2,8 +2,9 @@
 vim.o.termguicolors = true
 
 -- THICK cursor
---vim.opt.guicursor = ""
-
+--vim.opt.guicursor = ''
+-- vim.opt.statuscolumn = '%C%=%l|%r%s'
+vim.opt.statuscolumn = '%@SignCb@%s%=%T%@NumCb@%r│%T'
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -19,7 +20,7 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
-vim.opt.isfname:append("@-@")
+vim.opt.signcolumn = 'yes'
+vim.opt.isfname:append('@-@')
 
 vim.opt.updatetime = 50

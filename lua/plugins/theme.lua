@@ -1,14 +1,14 @@
 return {
-    "folke/tokyonight.nvim",
+    'folke/tokyonight.nvim',
     config = function()
-        require("tokyonight").setup({
+        require('tokyonight').setup({
             transparent = true,
             styles = {
-                sidebars = "transparent",
-                --floats = "transparent",
+                sidebars = 'transparent',
+                --floats = 'transparent',
             },
             day_brightness = 0.3,
         })
-        vim.cmd.colorscheme("tokyonight")
+        vim.cmd.colorscheme('tokyonight')
     end
 }

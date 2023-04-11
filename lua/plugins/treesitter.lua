@@ -1,9 +1,9 @@
 return {
-    "nvim-treesitter/nvim-treesitter",
+    'nvim-treesitter/nvim-treesitter',
     config = function()
         require 'nvim-treesitter.configs'.setup {
-            -- A list of parser names, or "all" (the five listed parsers should always be installed)
-            ensure_installed = { "rust", "lua", "php", "javascript", "typescript" },
+            -- A list of parser names, or 'all' (the five listed parsers should always be installed)
+            ensure_installed = { 'rust', 'lua', 'php', 'javascript', 'typescript' },
 
             -- Install parsers synchronously (only applied to `ensure_installed`)
             sync_install = false,
@@ -12,11 +12,11 @@ return {
             -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
             auto_install = true,
 
-            -- List of parsers to ignore installing (for "all")
-            ignore_install = { },
+            -- List of parsers to ignore installing (for 'all')
+            ignore_install = {},
 
             ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
-            -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
+            -- parser_install_dir = '/some/path/to/store/parsers', -- Remember to run vim.opt.runtimepath:append('/some/path/to/store/parsers')!
 
             highlight = {
                 enable = true,
@@ -24,7 +24,7 @@ return {
                 -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
                 -- the name of the parser)
                 -- list of language that will be disabled
-                -- disable = { "c" },
+                -- disable = { 'c' },
                 -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
                 disable = function(lang, buf)
                     local max_filesize = 100 * 1024 -- 100 KB

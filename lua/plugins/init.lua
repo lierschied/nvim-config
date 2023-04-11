@@ -2,7 +2,7 @@ return {
     {
         'm4xshen/autoclose.nvim',
         config = function()
-            require("autoclose").setup()
+            require('autoclose').setup()
         end
     },
     {
@@ -17,42 +17,54 @@ return {
             require('Comment').setup()
         end
     },
+    -- {
+    --     'ggandor/leap.nvim',
+    --     requires = { 'tpope/vim-repeat' },
+    -- },
+    -- {
+    --     'ggandor/flit.nvim',
+    --     config = function()
+    --         require('flit').setup {
+    --             keys = { f = 'f', F = 'F', t = 't', T = 'T' },
+    --         }
+    --     end
+    -- },
     {
         'goolord/alpha-nvim',
         requires = { 'nvim-tree/nvim-web-devicons' },
         config = function()
-            local alpha = require("alpha")
-            local dashboard = require("alpha.themes.dashboard")
-            require("alpha.term")
+            local alpha = require('alpha')
+            local dashboard = require('alpha.themes.dashboard')
+            require('alpha.term')
 
             local header = {
-                type = "terminal",
+                type = 'terminal',
                 -- https://dom111.github.io/image-to-ansi/
-                command = "cat | " .. os.getenv("HOME") .. "/.config/nvim/lua/config/alpha/header.sh",
+                command = 'cat | ' .. os.getenv('HOME') .. '/.config/nvim/lua/config/alpha/header.sh',
                 width = 80,
                 height = 26,
                 opts = {
-                    position = "center",
-                    hl = "String",
+                    position = 'center',
+                    hl = 'String',
                 },
             }
 
             local buttons = {
-                type = "group",
+                type = 'group',
                 val = {
-                    { type = "text", val = "Quick links", opts = { hl = "SpecialComment", position = "center" } },
-                    dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
-                    dashboard.button("e", " " .. " New file", ":ene <BAR> startinsert <CR>"),
-                    dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
-                    dashboard.button("t", " " .. " Find text", ":Telescope live_grep <CR>"),
-                    dashboard.button("q", " " .. " Quit", ":qa<CR>"),
+                    { type = 'text', val = 'Quick links', opts = { hl = 'SpecialComment', position = 'center' } },
+                    dashboard.button('f', ' ' .. ' Find file', ':Telescope find_files <CR>'),
+                    dashboard.button('e', ' ' .. ' New file', ':ene <BAR> startinsert <CR>'),
+                    dashboard.button('r', ' ' .. ' Recent files', ':Telescope oldfiles <CR>'),
+                    dashboard.button('t', ' ' .. ' Find text', ':Telescope live_grep <CR>'),
+                    dashboard.button('q', ' ' .. ' Quit', ':qa<CR>'),
                 },
             }
 
             local config = {
                 layout = {
                     header,
-                    { type = "padding", val = 6 },
+                    { type = 'padding', val = 6 },
                     buttons,
                 },
             }
