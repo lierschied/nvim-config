@@ -11,7 +11,7 @@ return {
         require('telescope').setup({
             defaults = {
                 file_ignore_patterns = {
-                    'node_modules', 'build', 'dist', 'yarn.lock'
+                    'node_modules', 'build', 'dist', 'yarn.lock', 'target'
                 }
             }
         })
